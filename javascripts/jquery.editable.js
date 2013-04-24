@@ -1,6 +1,6 @@
 /*
- *  Project: Asynchronous Load Content
- *  Description: This plugin loads content on page inicialization
+ *  Project: jQuery Editable
+ *  Description: A jQuery Plugin to make some of page blocks editable.
  *  Author: Willian Carminato <williancarminato@gmail.com>
  *  License: MIT
  */
