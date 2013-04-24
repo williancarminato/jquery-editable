@@ -24,10 +24,7 @@
             'modalId':       'myModal',
             'formUri':       '/form/form.html',
             'buttonProtype': '<a role="button" class="btn">Edit</a>',
-            'sendData':      'options',
-            'onSucess':    function (element, response){
-                               element.html(response.content);
-                           },
+            'sendData':      'options'
         };
 
     // The actual plugin constructor
