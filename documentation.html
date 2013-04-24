@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Editable - Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="stylesheets/estilos.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/index.html">jQuery Editable</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/index.html">Home</a></li>
+              <li class="active"><a href="/documentation.html">Documentation</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Documentation</h1>
+        <p>This plugins helps you make some blocks of your page editable, here you will see how the plugin works and how to use it.</p>
+      </div>
+
+      <div class="row">
+        <div class="span12">
+	        <h3>1. Making a block editable</h3>
+            <p>To make a block editable you just need to add the <b>.editable</b> class in the element you want, see below:</p>
+            <article class="code">
+<pre class="prettyprint lang=html">
+&lt;div class="editable"&gt;
+    &lt;h2&gt;Editable block&lt;/h2&gt;
+    &lt;p&gt;Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+            </article>
+            <p>With this the plugin append a button in the top of <b>div</b> element.</p>
+        </div>
+
+        <div class="span12">
+	        <h3>2. Plugin Parameters</h3>
+            <p>The plugin have some customizable things to you, here is the list:</p>
+            <ul>
+              <li>
+                <p><b>modalId</b>: Your bootstrap modal id. (<b>Default: <em>myModal</em></b>)</p>
+              </li>
+              <li>
+                <p><b>formUri</b>: This url will be used to get the form html. (<b>Default: <em>/form/form.html</em></b>)</p>
+              </li>
+              <li>
+                <p><b>buttonProtype</b>: The button html that will be puted in the editable blocks. (<b>Default: <em>&lt;role="button" class="btn"&gt;Edit&lt;/a&gt;</em></b>)</p>
+              </li>
+              <li>
+                <p><b>sendData</b>: The html data atribute to send as data to form generation. (<b>Default: <em>options</em></b>)</p>
+              </li>
+            </ul>
+            <article class="code">
+<pre class="prettyprint">
+$('body').editable({
+    'modalId':       'myModal',
+    'formUri':       '/form/form.html',
+    'buttonProtype': '&lt;role="button" class="btn"&gt;Edit&lt;/a&gt;',
+    'sendData':      'options'
+});
+</pre>
+            </article>
+        </div>
+
+        <div class="span12">
+	        <h3>3. Generation of block html</h3>
+            <p>The plugin put the html in the specified block with <b>.editable</b> class, but how?</p>
+            <p>He expects that in the response of his ajax form requisition you give him one JSON encoded object with an attribute <b>'html'</b>, so in your server-side script, you must do something like this:</p>
+            <article class="code">
+<pre class="prettyprint">
+//Remember: This is only for demonstration, in a real application you have to worry about security issues
+$html = "&lt;h2&gt;".$_POST['title']."&lt;/h2&gt;";
+$html .= "&lt;p&gt;".$_POST['content']."&lt;/p&gt;";
+
+echo json_encode(array('html' => $html));
+</pre>
+            </article>
+            <p>Always remember to return the 'html' json attribute.</p>
+        </div>
+
+        <div class="span12">
+	        <h3>4. Form generation data</h3>
+            <p>You can pass with html5 data attribute an json object along with ajax requisition to form generation like this:</p>
+            <article class="code">
+<pre class="prettyprint lang=html">
+&lt;div class="editable" data-options='{"pk":"1","demo":"test"}'&gt;
+    &lt;h2&gt;Editable block&lt;/h2&gt;
+    &lt;p&gt;Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+            </article>
+            <p>Always remember to return the 'html' json attribute.</p>
+        </div>
+
+        <div class="span12">
+	        <h3>5. CSS requirements</h3>
+            <p>The below css must be loaded in the page.</p>
+            <article class="code">
+<pre class="prettyprint">
+/* jQuery Editable Css */
+.editable {
+    position: relative;
+}
+
+.btn-j-editable {
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+</pre>
+            </article>
+        </div>
+
+     </div>
+
+      <hr>
+
+      <footer>
+        <div class="row">
+            <div class="span6">
+		        <p>Dependencies: <a href="https://twitter.github.io/bootstrap/">Bootstrap</a>, <a href="http://jquery.com/">jQuery</a>.</p>
+                <p>Available under the <a href="http://opensource.org/licenses/mit-license.php">MIT license</a>.</p>
+		        <p>Reference: <a href="http://jqueryboilerplate.com/">jQuery Boilerplate</a>.</p>
+            </div>
+		    <div class="span6">
+                <div class="pull-right">
+			        <a href="https://twitter.com/willcampideli"><img src="https://si0.twimg.com/profile_images/1105056834/rajatkashyap-batman-tux_bigger.png"></a>
+			        <a href="https://twitter.com/willcampideli">@willcampideli</a>
+                </div>
+		    </div>
+        </div>
+      </footer>
+
+    </div> <!-- /container -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="javascripts/plugins.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            prettyPrint();
+        });
+    </script>
+  </body>
+</html>

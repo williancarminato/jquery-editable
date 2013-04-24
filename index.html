@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Editable - Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="stylesheets/estilos.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/index.html">jQuery Editable</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/index.html">Home</a></li>
+              <li><a href="/documentation.html">Documentation</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>jQuery Editable</h1>
+        <p>A jQuery Plugin to make some of page blocks editable only by placing the class <b>.editable</b>. It's user responsability to make form generation dinamicaly based on html data attributes, read the full <a href="/documentation.html">documentation</a> to know how to use it.</p>
+      </div>
+
+      <div class="hero-unit row">
+        <p class="span6"><a href="https://github.com/williancarminato/jquery-editable/archive/master.zip" class="btn btn-primary btn-large pull-right">Download</a></p>
+        <p class="span6 last"><a href="https://github.com/williancarminato/jquery-editable" class="btn btn-primary btn-large pull-left">View on Github</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4 editable">
+          <h2 class="">Editable block</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+       </div>
+        <div class="span4 editable" data-options='{"pk":"1","demo":"test"}'>
+          <h2>Editable block</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        </div>
+      </div>
+
+    <div id="myModal" class="modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Editable</h3>
+      </div>
+      <div class="modal-body">
+        <p>Modal body</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" type="submit">Save changes</button>
+      </div>
+    </div>
+
+      <hr>
+
+      <footer>
+        <div class="row">
+            <div class="span6">
+		        <p>Dependencies: <a href="https://twitter.github.io/bootstrap/">Bootstrap</a>, <a href="http://jquery.com/">jQuery</a>.</p>
+                <p>Available under the <a href="http://opensource.org/licenses/mit-license.php">MIT license</a>.</p>
+		        <p>Reference: <a href="http://jqueryboilerplate.com/">jQuery Boilerplate</a>.</p>
+            </div>
+		    <div class="span6">
+                <div class="pull-right">
+			        <a href="https://twitter.com/willcampideli"><img src="https://si0.twimg.com/profile_images/1105056834/rajatkashyap-batman-tux_bigger.png"></a>
+			        <a href="https://twitter.com/willcampideli">@willcampideli</a>
+                </div>
+		    </div>
+        </div>
+      </footer>
+
+    </div> <!-- /container -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="javascripts/jquery.editable.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('body').editable();
+        });
+    </script>
+  </body>
+</html>
