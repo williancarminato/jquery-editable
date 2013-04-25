@@ -82,17 +82,16 @@ $('body').editable({
         <div class="span12">
 	        <h3>3. Generation of block html</h3>
             <p>The plugin put the html in the specified block with <b>.editable</b> class, but how?</p>
-            <p>He expects that in the response of his ajax form requisition you give him one JSON encoded object with an attribute <b>'html'</b>, so in your server-side script, you must do something like this:</p>
+            <p>He expects that in the response of his ajax form requisition you give him some html, so in your server-side script, you must do something like this:</p>
             <article class="code">
 <pre class="prettyprint">
 //Remember: This is only for demonstration, in a real application you have to worry about security issues
 $html = "&lt;h2&gt;".$_POST['title']."&lt;/h2&gt;";
 $html .= "&lt;p&gt;".$_POST['content']."&lt;/p&gt;";
 
-echo json_encode(array('html' => $html));
+echo $html;
 </pre>
             </article>
-            <p>Always remember to return the 'html' json attribute.</p>
         </div>
 
         <div class="span12">
@@ -106,7 +105,6 @@ echo json_encode(array('html' => $html));
 &lt;/div&gt;
 </pre>
             </article>
-            <p>Always remember to return the 'html' json attribute.</p>
         </div>
 
         <div class="span12">

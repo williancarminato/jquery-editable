@@ -4,5 +4,5 @@
 $html = "<h2>".$_POST['title']."</h2>";
 $html .= "<p>".$_POST['content']."</p>";
 
-echo json_encode(array('html' => $html));
+echo $html;
 

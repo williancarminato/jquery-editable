@@ -125,7 +125,7 @@
                 url: $form.attr('action'),
                 type: 'post',
                 data: $form.serialize(),
-                dataType: 'json',
+                dataType: 'html',
                 success: function (response) {
                             var $btnClone = $button.clone();
                             $btnClone.click(function(event){
@@ -133,7 +133,7 @@
                                 plugin.applyButtonClickAction($(this), $element, options);
                             });
 
-                            $element.empty().html(response.html).prepend($btnClone);
+                            $element.empty().html(response).prepend($btnClone);
                         },
             });
         }
