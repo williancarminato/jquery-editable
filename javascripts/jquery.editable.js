@@ -23,8 +23,10 @@
         defaults = {
             'modalId':       'myModal',
             'formUri':       '/form/form.html',
-            'buttonProtype': '<a role="button" class="btn">Edit</a>',
-            'sendData':      'options'
+            'buttonPrototype': '<a role="button" class="btn">Edit</a>',
+            'sendData':      'options',
+            'afterHtmlLoad': null,
+            'afterFormLoad': null
         };
 
     // The actual plugin constructor
@@ -58,7 +60,7 @@
 
             $('.editable').each(function(){
                 var dataAttr = 'data-' + options.sendData;
-                var $button = $(options.buttonProtype).addClass('btn-j-editable').attr('data-toggle', 'modal');
+                var $button = $(options.buttonPrototype).addClass('btn-j-editable').attr('data-toggle', 'modal');
                 var $element = $(this);
 
                 $button.attr(dataAttr, JSON.stringify($element.data(options.sendData)));
@@ -106,6 +108,9 @@
                                 plugin.modalFormSubmit($(this), $element, $button, options);
                                 return false;
                             });
+                            if (typeof options.afterFormLoad === 'function') {
+                                options.afterFormLoad();
+                            }
                          },
             });
         },
@@ -134,6 +139,10 @@
                             });
 
                             $element.empty().html(response).prepend($btnClone);
+
+                            if (typeof options.afterHtmlLoad === 'function') {
+                                options.afterHtmlLoad();
+                            }
                         },
             });
         }

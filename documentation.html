@@ -61,10 +61,16 @@
                 <p><b>formUri</b>: This url will be used to get the form html. (<b>Default: <em>/form/form.html</em></b>)</p>
               </li>
               <li>
-                <p><b>buttonProtype</b>: The button html that will be puted in the editable blocks. (<b>Default: <em>&lt;role="button" class="btn"&gt;Edit&lt;/a&gt;</em></b>)</p>
+                <p><b>buttonPrototype</b>: The button html that will be puted in the editable blocks. (<b>Default: <em>&lt;role="button" class="btn"&gt;Edit&lt;/a&gt;</em></b>)</p>
               </li>
               <li>
                 <p><b>sendData</b>: The html data atribute to send as data to form generation. (<b>Default: <em>options</em></b>)</p>
+              </li>
+              <li>
+                <p><b>afterFormLoad</b>: A closure function to be executed after form load. (<b>Default: <em>null</em></b>)</p>
+              </li>
+              <li>
+                <p><b>afterHtmlLoad</b>: A closure function to be executed after html load. (<b>Default: <em>null</em></b>)</p>
               </li>
             </ul>
             <article class="code">
@@ -72,8 +78,14 @@
 $('body').editable({
     'modalId':       'myModal',
     'formUri':       '/form/form.html',
-    'buttonProtype': '&lt;role="button" class="btn"&gt;Edit&lt;/a&gt;',
-    'sendData':      'options'
+    'buttonPrototype': '&lt;role="button" class="btn"&gt;Edit&lt;/a&gt;',
+    'sendData':      'options',
+    afterFormLoad: function(){
+        //Do something
+    },
+    afterHtmlLoad: function(){
+        //Do something
+    }
 });
 </pre>
             </article>
