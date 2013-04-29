@@ -1,6 +1,6 @@
-jquery-editable
+jQuery Editable
 ===============
 
-A jQuery Plugin to make some of page blocks editable.
+A jQuery plugin to make some of page blocks editable.
 
-Full documentation can be found here [jQuery Editable](http://williancarminato.tec4web.com.br/)
+Full documentation can be found here [jQuery Editable](http://lab.a2comunicacao.com.br/jquery-editable/)
